@@ -1,0 +1,157 @@
+﻿@using ECommerce.Repository
+@using ECommerce.Entity
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Parliament</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700" />
+    <link href="~/fonts/icomoon/style.css" rel="stylesheet" />
+
+    <link href="~/css/aos.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+
+</head>
+
+
+
+
+
+
+
+
+<body>
+
+    <div class="site-wrap">
+        <header class="site-navbar" role="banner">
+            <div class="site-navbar-top">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+                            <form action="" class="site-block-top-search">
+                                <span class="icon icon-search2"></span>
+                                <input type="text" class="form-control border-0" placeholder="Ara" />
+                            </form>
+                        </div>
+
+                        <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+                            <div class="site-logo">
+                                <a href="~/Home/Index" class="js-logo-clone">Parliament</a>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                            <div class="site-top-icons">
+                                <ul>
+                                    <li><a href="~/Account/Login"><span class="icon icon-person"></span></a></li>
+
+                                    <li>
+                                        <a href="~/Order/DetailList" class="site-cart">
+                                            <span class="icon icon-shopping_cart"></span>
+                                            <span class="count">
+                                                @{
+
+                                                    Order ord = (Order)Session["Order"];
+                                                    int? adet = 0;
+
+                                                    if (ord != null)
+                                                    {
+                                                        foreach (OrderDetail item in ord.OrderDetails)
+                                                        {
+                                                            adet += item.Quantity;
+
+                                                        }
+                                                    }
+
+                                                }
+                                                @Html.Label(adet.ToString())
+                                                <br />
+
+                                            </span>
+
+                                        </a>
+                                    </li>
+                                    <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+                <div class="container">
+                    <ul class="site-menu js-clone-nav d-none d-md-block">
+                        <li @*class="active"*@>
+                            <a href="~/Home/Index">Anasayfa</a>
+
+                        </li>
+                        <li class="#">
+                            <a href="~/Home/About">Hakkımızda</a>
+
+                        </li>
+                        <li><a href="~/Home/ListAllProduct">Ürünler</a></li>
+
+                        <li><a href="~/Home/Contact">İletişim</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+
+
+
+
+
+
+
+
+        <footer class="site-footer border-top">
+            <div class="container">
+
+                <div class="row pt-5 mt-5 text-center">
+                    <div class="col-md-12">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;2019 Bütün Hakları Saklıdır. | Site Tasarımı <i class="icon-keyboard" aria-hidden="true"></i> by <a href="https://soft-fare.com" target="_blank" class="text-primary">Soft-Fare</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+</body>
+</html>
+

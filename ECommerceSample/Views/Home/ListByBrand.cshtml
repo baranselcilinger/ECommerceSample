@@ -1,0 +1,11 @@
+﻿@using ECommerce.Entity
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "ListByBrand";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>List By Brand</h2>
+@Html.Partial("~/Views/Shared/_ProductList.cshtml")
+
